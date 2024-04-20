@@ -1,5 +1,6 @@
 import express from 'express';
 import skill from './api/skill.mjs';
+import user from './api/user.mjs';
 import connectDB from './db.mjs';
 import './config.mjs';
 
@@ -24,5 +25,6 @@ connectDB();  // Connect to the database
 
 // Set up API routes
 app.use('/api/skill', skill);
+app.use('/api/user', user);
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));

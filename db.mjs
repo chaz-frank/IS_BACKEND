@@ -1,7 +1,11 @@
 import mongoose from 'mongoose';
 
 const connectDB = () => {
-    mongoose.connect(process.env.DSN);
+    if(process.env.isDev === "true"){
+        mongoose.connect(process.env.DSN_DEV);
+    } else {
+        mongoose.connect(process.env.DSN_PROD);
+    }
     console.log("MongoDB successfully connected.");
 }
 
